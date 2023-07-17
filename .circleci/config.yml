@@ -1,0 +1,30 @@
+version: 2.1
+
+orbs:
+  brix: private/brix-modular@0.2  # McK-Internal organisation
+  # brix: mck-private/brix-modular@0.2  # McK-Private organisation
+
+only-pr-branches: &only-pr-branches
+ filters:
+   branches:
+     ignore:
+       - main
+       - master
+       - develop
+       - /^release/*
+
+
+workflows:
+  brix:
+    jobs:
+      - brix/build_and_publish:
+          name: Build and publish Brix posts
+          brix-cli-version: latest
+          artifactory-user: $ARTIFACTORY_USER
+          artifactory-pass: $ARTIFACTORY_PASS
+          main-branch: origin/main
+          posts-root: posts/
+          brix-api-token: $BRIX_API_TOKEN
+          fail-on-many: false
+          ignore-failed-tests: false
+          <<: *only-pr-branches
