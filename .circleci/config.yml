@@ -24,6 +24,7 @@ workflows:
           artifactory-pass: $ARTIFACTORY_PASS
           main-branch: origin/main
           posts-root: posts/
+          brix-env: dev
           brix-api-token: $BRIX_API_TOKEN
           fail-on-many: false
           ignore-failed-tests: false
