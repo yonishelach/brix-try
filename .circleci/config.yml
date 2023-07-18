@@ -1,8 +1,8 @@
 version: 2.1
 
-# orbs:
-#   brix: private/brix-modular@0.2  # McK-Internal organisation
-#   # brix: mck-private/brix-modular@0.2  # McK-Private organisation
+orbs:
+  brix: private/brix-modular@0.2  # McK-Internal organisation
+  # brix: mck-private/brix-modular@0.2  # McK-Private organisation
 
 only-pr-branches: &only-pr-branches
  filters:
